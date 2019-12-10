@@ -1,4 +1,4 @@
-﻿namespace Calendar.Shapes
+﻿namespace Calendar.Model.Geometry
 {
     class Coordinate
     {
@@ -19,6 +19,5 @@
 
         #region methods
         #endregion methods
-
     }
 }

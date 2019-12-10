@@ -1,4 +1,4 @@
-﻿namespace Calendar.Shapes
+﻿namespace Calendar.Model.Geometry
 {
     class Square : Rectangle
     {
@@ -15,6 +15,5 @@
 
         #region methods
         #endregion methods
-
     }
 }

@@ -60,39 +60,72 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Grid.cs" />
-    <Compile Include="IMonthGridSquare.cs" />
-    <Compile Include="MonthGrid.cs" />
-    <Compile Include="MonthGridEmptySquare.cs" />
-    <Compile Include="MonthGridRow.cs" />
-    <Compile Include="MonthGridSquare.cs" />
-    <Compile Include="MonthGridWeekSquare.cs" />
-    <Compile Include="Shapes\Coordinate.cs" />
-    <Compile Include="Shapes\IRectangle.cs" />
-    <Compile Include="Shapes\Rectangle.cs" />
-    <Compile Include="Shapes\Square.cs" />
-    <Compile Include="Week.cs" />
-    <Compile Include="Year.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="Enums\CellType.cs" />
+    <Compile Include="Interfaces\ICalendarCell.cs" />
+    <Compile Include="Model\CalendarBuilder.cs" />
+    <Compile Include="Model\Calendar\Day.cs" />
+    <Compile Include="Model\Calendar\Month.cs" />
+    <Compile Include="Model\Calendar\Week.cs" />
+    <Compile Include="Model\Cells\CellConstants.cs" />
+    <Compile Include="Model\CellValueDetails.cs" />
+    <Compile Include="Model\DatabaseValueDetails.cs" />
+    <Compile Include="Model\Geometry\Coordinate.cs" />
+    <Compile Include="Interfaces\IRectangle.cs" />
+    <Compile Include="Model\Geometry\Rectangle.cs" />
+    <Compile Include="Model\Geometry\Square.cs" />
+    <Compile Include="Model\Grids\GridCalculator.cs" />
+    <Compile Include="Model\Grids\YearGrid.cs" />
+    <Compile Include="Model\Cells\CalendarCell.cs" />
+    <Compile Include="Model\Cells\WeekdayTitleCell.cs" />
+    <Compile Include="Model\Cells\WeekNumberCell.cs" />
+    <Compile Include="Model\Cells\DayCell.cs" />
+    <Compile Include="Model\Cells\YearCell.cs" />
+    <Compile Include="Model\Cells\MonthNameCell.cs" />
+    <Compile Include="Model\Grids\MonthGrid.cs" />
+    <Compile Include="Model\Calendar\Year.cs" />
+    <Compile Include="Model\Settings\IndividualMonthSettings.cs" />
+    <Compile Include="Model\Settings\YearCalendarSettings.cs" />
+    <Compile Include="Model\Settings\YearSettings.cs" />
+    <Compile Include="ViewModel\ApplicationMainViewModel.cs" />
+    <Compile Include="ViewModel\IndividualMonthSettingsViewModel.cs" />
+    <Compile Include="ViewModel\YearCalendarSettingsViewModel.cs" />
+    <Compile Include="ViewModel\YearSettingsViewModel.cs" />
+    <Compile Include="View\ApplicationMainView.xaml.cs">
+      <DependentUpon>ApplicationMainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IndividualMonthSettingsView.xaml.cs">
+      <DependentUpon>IndividualMonthSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\YearCalendarSettingsView.xaml.cs">
+      <DependentUpon>YearCalendarSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\YearSettingsView.xaml.cs">
+      <DependentUpon>YearSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Day.cs" />
-    <Compile Include="FinnishHolidays.cs" />
-    <Compile Include="FinnishWorkHolidays.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="Model\Calendar\FinnishHolidays.cs" />
+    <Compile Include="Model\Calendar\FinnishWorkHolidays.cs" />
+    <Page Include="View\ApplicationMainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\IndividualMonthSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\YearCalendarSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\YearSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Month.cs" />
-    <Compile Include="MonthGridDay.cs" />
-    <Compile Include="MonthGridWeek.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -119,10 +152,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Maarittelyt.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="calendar.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Calendar.Interfaces;
+using System;
 
-namespace Calendar.Shapes
+namespace Calendar.Model.Geometry
 {
     class Rectangle : IRectangle
     {
@@ -29,6 +30,5 @@ namespace Calendar.Shapes
 
         #region methods
         #endregion methods
-
     }
 }

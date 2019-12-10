@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Calendar
+namespace Calendar.Model.Calendar
 {
     class FinnishWorkHolidays
     {
