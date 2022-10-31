@@ -1,4 +1,4 @@
-﻿using JM.General;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +12,7 @@ namespace Calendar.Model.Calendar
         #region constructors
         public Month(Year monthYear, int monthNumber)
         {
-            Year = monthYear ?? throw new ArgumentNullException(nameof(monthYear));
+            year = monthYear ?? throw new ArgumentNullException(nameof(monthYear));
 
             if (monthNumber < 1 || monthNumber > 12)
             {

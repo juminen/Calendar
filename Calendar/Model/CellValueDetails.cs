@@ -67,7 +67,7 @@ namespace Calendar.Model
 
         public static string GetHeaders()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("TYYPPI\t");
             sb.Append("APUTEKSTI 1\t");
             sb.Append("APUTEKSTI 2\t");

@@ -1,63 +1,36 @@
 ﻿<UserControl
-    x:Class="Calendar.View.YearSettingsView"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Calendar.View"
-    mc:Ignorable="d">
-    <GroupBox
-        Header="Year settings">
-        <Grid
-            Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition
-                    Width="Auto" />
-                <ColumnDefinition
-                    Width="100" />
-            </Grid.ColumnDefinitions>
-            <Label
-                Grid.Row="0"
-                Grid.Column="0"
-                Content="Start year:" />
-            <TextBox
-                Grid.Row="0"
-                Grid.Column="1"
-                Text="{Binding StartYear, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}" />
-            <Label
-                Grid.Row="1"
-                Grid.Column="0"
-                Content="End year:" />
-            <TextBox
-                Grid.Row="1"
-                Grid.Column="1"
-                Text="{Binding EndYear, Mode=TwoWay, ValidatesOnNotifyDataErrors=True, UpdateSourceTrigger=PropertyChanged}">
-                <!--<Validation.ErrorTemplate>
-                    <ControlTemplate>
-                        <StackPanel>
-                            --><!-- Placeholder for the TextBox itself --><!--
-                            <AdornedElementPlaceholder
-                                x:Name="textBox" />
-                            <ItemsControl
-                                ItemsSource="{Binding}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock
-                                            Text="{Binding ErrorContent}"
-                                            Foreground="Red" />
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Validation.ErrorTemplate>-->
-            </TextBox>
-        </Grid>
-    </GroupBox>
+	x:Class="Calendar.View.YearSettingsView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:Calendar.View"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	mc:Ignorable="d"
+	d:Foreground="Yellow">
+	<GroupBox
+		Header="Year settings"
+		MinWidth="{StaticResource SettingsBoxMinWidth}">
+		<Grid
+			Grid.Column="0">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="Auto" />
+				<RowDefinition
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBox
+				Grid.Row="0"
+				materialDesign:HintAssist.Hint="Start Year"
+				Text="{Binding StartYear, 
+				Mode=TwoWay, 
+				UpdateSourceTrigger=PropertyChanged}" />
+			<TextBox
+				Grid.Row="1"
+				materialDesign:HintAssist.Hint="End Year"
+				Text="{Binding EndYear, 
+				Mode=TwoWay, 
+				UpdateSourceTrigger=PropertyChanged}" />
+		</Grid>
+	</GroupBox>
 </UserControl>

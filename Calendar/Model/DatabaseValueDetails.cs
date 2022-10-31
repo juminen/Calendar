@@ -73,7 +73,7 @@ namespace Calendar.Model
             {
                 if (d.IsWorkingDay)
                 {
-                    return "8,0";
+                    return "7,5";
                 }
                 else
                 {
@@ -89,7 +89,7 @@ namespace Calendar.Model
 
         private string ConstructSring()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append($"{ Date }\t");
             sb.Append($"{ WeekDayNumber }\t");
             sb.Append($"{ DayLocalName }\t");
@@ -109,7 +109,7 @@ namespace Calendar.Model
 
         public static string GetHeaders()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.Append("Päivämäärä\t");
             sb.Append("Viikonpäivän numero\t");
             sb.Append("Viikonpäivä\t");
@@ -126,63 +126,5 @@ namespace Calendar.Model
             sb.Append("Normaalit työtunnit päivässä");
             return sb.ToString();
         }
-
-        //private string CreateCalendar(int startYear, int endYear)
-        //{
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.Append("Päivämäärä");
-        //    sb.Append("\tViikonpäivän numero");
-        //    sb.Append("\tViikonpäivä");
-        //    sb.Append("\tPäivä");
-        //    sb.Append("\tKuukausi");
-        //    sb.Append("\tKuukausi (teksti)");
-        //    sb.Append("\tVuosi");
-        //    sb.Append("\tViikkonumero");
-        //    sb.Append("\tTuntilapun viikkonumero (viikko)");
-        //    sb.Append("\tTuntilapun viikkonumero (kuukausivaihde)");
-        //    sb.Append("\tPäivämäärän huomautus");
-        //    sb.Append("\tArki/viikonloppu");
-        //    sb.Append("\tTyö-/vapaapäivä");
-        //    sb.AppendLine("\tNormaalit työtunnit päivässä");
-
-        //    for (int i = startYear; i < endYear + 1; i++)
-        //    {
-        //        Year y = new Year(i);
-        //        foreach (Day d in y.GetDaysInOrder())
-        //        {
-        //            sb.Append(d.Date.ToString("dd.MM.yyyy"));
-        //            sb.Append("\t" + d.WeekDayNumber);
-        //            sb.Append("\t" + d.LocalName);
-        //            sb.Append("\t" + d.Date.Day);
-        //            sb.Append("\t" + d.Date.Month);
-        //            sb.Append("\t" + CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(d.Date.Month));
-        //            sb.Append("\t" + d.Date.Year);
-        //            sb.Append("\t" + d.Iso8601WeekOfYear);
-        //            sb.Append("\t" + d.Iso8601WeekOfYearWithYear);
-        //            sb.Append("\t" + d.Iso8601WeekOfYearWithYear + d.GetWeekNumberPart());
-        //            sb.Append("\t" + d.WorkingDayDescription);
-        //            if (d.WeekDay)
-        //            {
-        //                sb.Append("\tarki");
-        //            }
-        //            else
-        //            {
-        //                sb.Append("\tviikonloppu");
-        //            }
-        //            if (d.IsWorkingDay)
-        //            {
-        //                sb.Append("\ttyöpäivä");
-        //                sb.AppendLine("\t8,0");
-        //            }
-        //            else
-        //            {
-        //                sb.Append("\tvapaapäivä");
-        //                sb.AppendLine("\t0,0");
-        //            }
-
-        //        }
-        //    }
-        //    return sb.ToString();
-        //}
     }
 }

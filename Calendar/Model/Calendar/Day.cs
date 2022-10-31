@@ -1,4 +1,4 @@
-﻿using JM.General;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 using System.Globalization;
 

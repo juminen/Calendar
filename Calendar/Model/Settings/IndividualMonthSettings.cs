@@ -6,7 +6,7 @@
         {
             TopLeftX = 0;
             TopLeftY = 0;
-            CellSize = 2.6250;
+            CellSize = 2.750;
             FilenameTemplate = "kuukausi_[YEAR]-[MONTH].dwg";
         }
         public double TopLeftX { get; set; }

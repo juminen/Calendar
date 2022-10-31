@@ -26,11 +26,11 @@ namespace Calendar.Model
         #region properties
         List<Year> years;
         public IReadOnlyCollection<Year> Years { get; private set; }
-        public string DatabaseValues { get; private set; }
-        public string YearCalendarValues { get; private set; }
-        public string IndividualMonthValues { get; private set; }
+        public string DatabaseValues { get; private set; } = string.Empty;
+        public string YearCalendarValues { get; private set; } = string.Empty;
+		public string IndividualMonthValues { get; private set; } = string.Empty;
 
-        public YearSettings YearSettings { get; private set; }
+		public YearSettings YearSettings { get; private set; }
         public YearCalendarSettings YearCalendarSettings { get; private set; }
         public IndividualMonthSettings IndividualMonthSettings { get; private set; }
         #endregion
@@ -152,7 +152,5 @@ namespace Calendar.Model
 
         #region event handlers
         #endregion
-
-
     }
 }

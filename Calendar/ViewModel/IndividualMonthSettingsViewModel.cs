@@ -1,6 +1,6 @@
 ﻿using Calendar.Model.Grids;
 using Calendar.Model.Settings;
-using JM.General;
+using CommunityToolkit.Mvvm.ComponentModel;
 using System;
 
 namespace Calendar.ViewModel
@@ -74,10 +74,5 @@ namespace Calendar.ViewModel
 
         #region event handlers
         #endregion
-
-
-
-
-
     }
 }

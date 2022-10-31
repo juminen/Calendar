@@ -1,123 +1,157 @@
 ﻿<Window
-    x:Class="Calendar.View.ApplicationMainView"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:Calendar.View"
-    Title="Calendar builder"
-    mc:Ignorable="d"
-    d:DesignHeight="700"
-    d:DesignWidth="600"
-    WindowState="Maximized"
-    WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition
-                Width="Auto" />
-            <ColumnDefinition
-                Width="*" />
-        </Grid.ColumnDefinitions>
-        <StackPanel
-            Grid.Column="0">
-            <local:YearSettingsView
-                DataContext="{Binding YearSettings}" />
-            <local:YearCalendarSettingsView
-                DataContext="{Binding YearCalendarSettings}"/>
-            <local:IndividualMonthSettingsView
-                DataContext="{Binding IndividualMonthSettings}"/>
-            <GroupBox
-                Header="Creation options">
-                <StackPanel>
-                    <CheckBox
-                        Content="Database values"
-                        IsChecked="{Binding DatabaseValuesChecked, Mode=TwoWay, 
-                        UpdateSourceTrigger=PropertyChanged}" />
-                    <CheckBox
-                        Content="Year grid values"
-                        IsChecked="{Binding YearCalendarValuesChecked, Mode=TwoWay, 
-                        UpdateSourceTrigger=PropertyChanged}" />
-                    <CheckBox
-                        Content="Individual month values"
-                        IsChecked="{Binding IndividualMonthValuesChecked, Mode=TwoWay, 
-                        UpdateSourceTrigger=PropertyChanged}" />
-                </StackPanel>
-            </GroupBox>
-            <Button
-                Content="Create values"
-                Command="{Binding CreateValuesCommand}" />
-            <Button
-                Content="Clear values"
-                Command="{Binding ClearValuesCommand}" />            
-            <GroupBox
-                Header="Copy to clipboard">
-                <StackPanel>
-                    <Button
-                        Content="Database values"
-                        Command="{Binding CopyDatabaseValuesCommand}" />
-                    <Button
-                        Content="Year calendar values"
-                        Command="{Binding CopyYearCalendarValuesCommand}" />
-                    <Button
-                        Content="Individual month values"
-                        Command="{Binding CopyIndividualMothValuesCommand}" />
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
-
-        <!-- Values -->
-        <Grid
-            Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="*" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="*" />
-                <RowDefinition
-                    Height="Auto" />
-                <RowDefinition
-                    Height="*" />
-            </Grid.RowDefinitions>
-            <Label
-                Grid.Row="0"
-                Content="Database values" />
-            <TextBox
-                Grid.Row="1"
-                AcceptsReturn="True"
-                AcceptsTab="True"
-                IsReadOnly="True"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.VerticalScrollBarVisibility="Auto"
-                Text="{Binding DatabaseValues, Mode=OneWay, 
-                UpdateSourceTrigger=PropertyChanged}" />
-            <Label
-                Grid.Row="2"
-                Content="Year calendar values" />
-            <TextBox
-                Grid.Row="3"
-                AcceptsReturn="True"
-                AcceptsTab="True"
-                IsReadOnly="True"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.VerticalScrollBarVisibility="Auto"
-                Text="{Binding YearCalendarValues, Mode=OneWay,
-                UpdateSourceTrigger=PropertyChanged}" />
-            <Label
-                Grid.Row="4"
-                Content="Individual month values" />
-            <TextBox
-                Grid.Row="5"
-                AcceptsReturn="True"
-                AcceptsTab="True"
-                IsReadOnly="True"
-                ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                ScrollViewer.VerticalScrollBarVisibility="Auto"
-                Text="{Binding IndividualMonthValues, Mode=OneWay,
-                UpdateSourceTrigger=PropertyChanged}" />
-        </Grid>
-    </Grid>
+	x:Class="Calendar.View.ApplicationMainView"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:Calendar.View"
+	Title="Calendar builder"
+	mc:Ignorable="d"
+	d:DesignHeight="900"
+	d:DesignWidth="900"
+	WindowState="Maximized"
+	WindowStartupLocation="CenterScreen"
+	TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+	TextElement.FontWeight="Regular"
+	TextElement.FontSize="13"
+	TextOptions.TextFormattingMode="Ideal"
+	TextOptions.TextRenderingMode="Auto"
+	Background="{DynamicResource MaterialDesignPaper}"
+	FontFamily="{DynamicResource MaterialDesignFont}">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<!-- settings -->
+			<ColumnDefinition
+				Width="Auto" />
+			<!-- values -->
+			<ColumnDefinition
+				Width="*" />
+		</Grid.ColumnDefinitions>
+		<StackPanel
+			Grid.Column="0">
+			<Grid>
+				<Grid.RowDefinitions>
+					<!-- settings -->
+					<RowDefinition
+						Height="Auto" />
+					<!-- options/buttons -->
+					<RowDefinition
+						Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<!-- year/month settings -->
+					<ColumnDefinition
+						Width="Auto" />
+					<!-- year calendar settings -->
+					<ColumnDefinition
+						Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<StackPanel
+					Grid.Column="0"
+					Grid.Row="0">
+					<local:YearSettingsView
+						DataContext="{Binding YearSettings}" />
+					<local:IndividualMonthSettingsView
+						DataContext="{Binding IndividualMonthSettings}" />
+				</StackPanel>
+				<local:YearCalendarSettingsView
+					Grid.Column="1"
+					Grid.Row="0"
+					DataContext="{Binding YearCalendarSettings}" />
+				<StackPanel
+					Grid.Column="0"
+					Grid.Row="1">
+					<GroupBox
+						Header="Creation options">
+						<StackPanel>
+							<CheckBox
+								Content="Database values"
+								IsChecked="{Binding DatabaseValuesChecked, Mode=TwoWay, 
+								UpdateSourceTrigger=PropertyChanged}" />
+							<CheckBox
+								Content="Year grid values"
+								IsChecked="{Binding YearCalendarValuesChecked, Mode=TwoWay, 
+								UpdateSourceTrigger=PropertyChanged}" />
+							<CheckBox
+								Content="Individual month values"
+								IsChecked="{Binding IndividualMonthValuesChecked, Mode=TwoWay, 
+								UpdateSourceTrigger=PropertyChanged}" />
+						</StackPanel>
+					</GroupBox>
+					<Button
+						Content="Create values"
+						Command="{Binding CreateValuesCommand}" />
+					<Button
+						Content="Clear values"
+						Command="{Binding ClearValuesCommand}" />
+				</StackPanel>
+				<StackPanel
+					Grid.Column="1"
+					Grid.Row="1">
+					<GroupBox
+						Header="Copy to clipboard">
+						<StackPanel>
+							<Button
+								Content="Database values"
+								Command="{Binding CopyDatabaseValuesCommand}" />
+							<Button
+								Content="Year calendar values"
+								Command="{Binding CopyYearCalendarValuesCommand}" />
+							<Button
+								Content="Individual month values"
+								Command="{Binding CopyIndividualMonthValuesCommand}" />
+						</StackPanel>
+					</GroupBox>
+				</StackPanel>
+			</Grid>
+		</StackPanel>
+		<!-- Values -->
+		<Grid
+			Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+				<RowDefinition
+					Height="*" />
+			</Grid.RowDefinitions>
+			<GroupBox
+				Grid.Row="0"
+				Header="Database values">
+				<TextBox
+					AcceptsReturn="True"
+					AcceptsTab="True"
+					IsReadOnly="True"
+					ScrollViewer.HorizontalScrollBarVisibility="Auto"
+					ScrollViewer.VerticalScrollBarVisibility="Auto"
+					Text="{Binding DatabaseValues, Mode=OneWay, 
+	                UpdateSourceTrigger=PropertyChanged}" />
+			</GroupBox>
+			<GroupBox
+				Grid.Row="1"
+				Header="Year calendar values">
+				<TextBox
+					AcceptsReturn="True"
+					AcceptsTab="True"
+					IsReadOnly="True"
+					ScrollViewer.HorizontalScrollBarVisibility="Auto"
+					ScrollViewer.VerticalScrollBarVisibility="Auto"
+					Text="{Binding YearCalendarValues, Mode=OneWay,
+				    UpdateSourceTrigger=PropertyChanged}" />
+			</GroupBox>
+			<GroupBox
+				Grid.Row="2"
+				Header="Individual month values">
+				<TextBox
+					AcceptsReturn="True"
+					AcceptsTab="True"
+					IsReadOnly="True"
+					ScrollViewer.HorizontalScrollBarVisibility="Auto"
+					ScrollViewer.VerticalScrollBarVisibility="Auto"
+					Text="{Binding IndividualMonthValues, Mode=OneWay,
+					UpdateSourceTrigger=PropertyChanged}" />
+			</GroupBox>
+		</Grid>
+	</Grid>
 </Window>

@@ -1,8 +1,57 @@
-﻿<Application x:Class="Calendar.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Calendar">
-    <Application.Resources>
-         
-    </Application.Resources>
+﻿<Application
+	x:Class="Calendar.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:local="clr-namespace:Calendar"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:system="clr-namespace:System;assembly=mscorlib">
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<materialDesign:BundledTheme
+					BaseTheme="Dark"
+					PrimaryColor="Green"
+					SecondaryColor="LightGreen" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/Generic.xaml" />
+				<ResourceDictionary
+					Source="pack://application:,,,/MaterialDesignExtensions;component/Themes/MaterialDesignDarkTheme.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+			<system:Double
+				x:Key="SettingsBoxMinWidth">150</system:Double>
+			<Style
+				TargetType="GroupBox"
+				BasedOn="{StaticResource MaterialDesignGroupBox}">
+				<Setter
+					Property="Margin"
+					Value="5" />
+			</Style>
+			<Style
+				TargetType="Label"
+				BasedOn="{StaticResource MaterialDesignLabel}"></Style>
+			<Style
+				TargetType="TextBox"
+				BasedOn="{StaticResource MaterialDesignFilledTextBox}">
+				<Setter
+					Property="FontFamily"
+					Value="Consolas" />
+			</Style>
+			<Style
+				TargetType="TextBlock"
+				BasedOn="{StaticResource MaterialDesignTextBlock}"></Style>
+			<Style
+				TargetType="Button"
+				BasedOn="{StaticResource MaterialDesignFlatButton}"></Style>
+			<Style
+				TargetType="ComboBox"
+				BasedOn="{StaticResource MaterialDesignFilledComboBox}"></Style>
+			<Style
+				TargetType="RadioButton"
+				BasedOn="{StaticResource MaterialDesignTabRadioButton}"></Style>
+			<BooleanToVisibilityConverter
+				x:Key="BoolToVis" />
+		</ResourceDictionary>
+	</Application.Resources>
 </Application>

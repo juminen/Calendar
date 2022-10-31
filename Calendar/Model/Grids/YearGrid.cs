@@ -14,8 +14,6 @@ namespace Calendar.Model.Grids
         #region constructors
         public YearGrid(Year year,
             Coordinate location,
-            //double height,
-            //double width,
             int columnCount,
             int rowCount,
             double cellSize)
@@ -50,7 +48,7 @@ namespace Calendar.Model.Grids
         private readonly int columnCount;
         private readonly int rowCount;
 
-        public ICalendarCell YearCell { get; private set; }
+        public ICalendarCell YearCell { get; private set; } = null!;
 
         private List<MonthGrid> monthGrids;
         public IReadOnlyCollection<MonthGrid> MonthGrids { get; private set; }
