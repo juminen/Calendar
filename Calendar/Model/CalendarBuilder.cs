@@ -99,7 +99,7 @@ namespace Calendar.Model
             foreach (Year year in years)
             {
                 YearGrid yg =
-                    new YearGrid(
+                    new (
                         year,
                         new Coordinate(YearCalendarSettings.TopLeftX, YearCalendarSettings.TopLeftY, 0),
                         YearCalendarSettings.ColumnCount,
@@ -107,13 +107,13 @@ namespace Calendar.Model
                         YearCalendarSettings.CellSize);
 
                 string filename = YearCalendarSettings.FilenameTemplate.Replace("[YEAR]", yg.YearCell.Value);
-                CellValueDetails cvdYear = new CellValueDetails(yg.YearCell, filename);
+                CellValueDetails cvdYear = new (yg.YearCell, filename);
                 sb.AppendLine(cvdYear.ToString());
                 foreach (MonthGrid mg in yg.MonthGrids)
                 {
                     foreach (ICalendarCell cell in mg.Cells)
                     {
-                        CellValueDetails cvd = new CellValueDetails(cell, filename);
+                        CellValueDetails cvd = new (cell, filename);
                         sb.AppendLine(cvd.ToString());
                     }
                 }
@@ -123,7 +123,7 @@ namespace Calendar.Model
 
         private void CreateIndividualMonthValues()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             sb.AppendLine(CellValueDetails.GetHeaders());
             foreach (Year year in years)
             {
@@ -132,13 +132,13 @@ namespace Calendar.Model
                     string filename = 
                         IndividualMonthSettings.FilenameTemplate.Replace("[YEAR]", year.Number.ToString())
                             .Replace("[MONTH]",month.Number.ToString("00"));
-                    MonthGrid mg = new MonthGrid(
+                    MonthGrid mg = new(
                         month,
                         new Coordinate(IndividualMonthSettings.TopLeftX, IndividualMonthSettings.TopLeftY, 0),
                         GridCalculator.CalculateMonthGridSize(IndividualMonthSettings.CellSize));
                     foreach (ICalendarCell cell in mg.Cells)
                     {
-                        CellValueDetails cvd = new CellValueDetails(cell, filename);
+                        CellValueDetails cvd = new(cell, filename);
                         sb.AppendLine(cvd.ToString());
                     }
                 }
